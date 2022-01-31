@@ -37,6 +37,10 @@ export class ArticleService {
     return this.httpClient.get(this.REST_API+"shortlist/"+page);
   };
 
+  GetArticlesDetails(page: any) {
+    return this.httpClient.get(this.REST_API+"detail/"+page);
+  };
+
   // Delete
   deleteArticle(id: any): Observable<any> {
     let API_URL = this.REST_API+"delete/"+id;
