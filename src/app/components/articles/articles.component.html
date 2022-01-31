@@ -1,0 +1,36 @@
+<div class="container" style="margin-bottom: 50px;">
+    <div class="articles-header">
+        <i class="fas fa-star-of-life fa-3x colorOrange"></i>
+        <h4>Articles</h4>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">ID</th>
+                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">Title</th>
+                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">Short Content</th>
+                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let article of Articles.data; let i = index">
+                    <td scope="col" style="border: 3px solid #ededed;">{{i+1}}</td>
+                    <td scope="col" style="border: 3px solid #ededed;">{{article.titlE_CONTENT}}</td>
+                    <td scope="col" style="border: 3px solid #ededed;">{{article.shorT_CONTENT}}</td>
+                    <td scope="col" style="border: 3px solid #ededed;"><button routerLink="/article-details/{{article.contenT_ID}}" class="detailB" type="button" style="border: 1px solid #ededed; border-radius: 15px; padding: 10px; color: #004d8f;">Detail</button></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div class="tb-pagination">
+        <ngb-pagination
+            [(page)]="page"
+            [pageSize]="pageSize"
+            [collectionSize]="array.length">
+        </ngb-pagination>
+    </div> -->
+</div>

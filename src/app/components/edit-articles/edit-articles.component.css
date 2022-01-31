@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+.colorOrange {
+    color: #ff4f28;
+}
+
+.edit-articles-header {
+    font-family: 'Merriweather', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0px;
+}
+
+.iconHeader {
+    margin-right: 15px;
+}
+
+h4 {
+    font-weight: bolder;
+    font-size: 38px;
+    margin: 0px;
+    color: #ededed;
+}
+
+p {
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    color: #ededed;
+    margin: 0px;
+}
+
+.searchContainer {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff4f28;
+    position: relative;
+    border: 1.5px solid #ededed;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.searchIcon {
+    padding: 0.5rem;
+  }
+  
+.searchBox {
+    border: 0;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    flex: 1;
+    font-family: 'Merriweather', serif;
+}
+
+.addButton {
+    border-radius: 20px; 
+    padding: 8px 12px;
+    background-color: #004d8f; 
+    color: #ededed; 
+    font-family: 'Merriweather', serif; 
+    font-weight: bold;
+    border: 2px solid #ededed;
+    box-shadow: 0 5px #a9a9a9;
+    margin: 30px 0px 15px 0px;
+    
+}
+
+.editB, .removeB {
+    box-shadow: 0 3.5px #a9a9a9;
+}
+
+.addButton:hover {
+    background-color: #ededed;
+    color: #004d8f;
+}
+
+.addButton:active {
+    background-color: #ededed;
+    color: #004d8f;
+    box-shadow: 0 3px #a9a9a9;
+    transform: translateY(3px);
+}
+
+.editB:active, .removeB:active {
+    box-shadow: 0 0px #a9a9a9;
+    transform: translateY(2.5px);
+}
+
+.table {
+    font-family: 'Merriweather', serif;
+    color: #ededed;
+    border: 3px solid #ededed;
+}

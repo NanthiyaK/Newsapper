@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+nav {
+    padding: 0px;
+}
+
+.container-fluid {
+    background-color: #ededed;
+    padding: 8px 22px;
+}
+
+.text-colorByme {
+    color: #004d8f;
+}
+
+.text-fontByme {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+footer {
+    font-family: 'Merriweather', serif;
+    color: #004d8f;
+    font-weight: bold;
+}

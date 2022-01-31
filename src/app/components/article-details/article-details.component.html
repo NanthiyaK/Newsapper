@@ -1,0 +1,27 @@
+<div class="container" style="margin-bottom: 50px;">
+    <!-- Header -->
+    <div class="article-details-header">
+        <i class="fas fa-star-of-life fa-3x colorOrange iconHeader"></i>
+        <h4 *ngFor="let article of Articles.data; let i = index">{{article.titlE_CONTENT}}</h4>
+    </div>
+
+    <!-- Backward button -->
+    <div class="back-button d-flex justify-content-start">
+        <button (click)="backClicked()" class="backButton">
+            <i class="fas fa-arrow-circle-left"></i>
+            Back</button>
+    </div>
+
+    <!-- Details Section-->
+    <div class="container-fluid d-flex align-items-center headSection" style="background-color: #ff4f28;">
+        <i class="fas fa-circle" style="color: #ededed; margin-right: 5px;"></i>
+        <i class="fas fa-square" style="color: #ededed; margin-right: 5px;"></i>
+        <i class="fas fa-caret-up fa-2x" style="color: #ededed;"></i>
+    </div>
+    <div class="container-fluid addSection" style="background-color: #ededed;">
+        <div class="container d-flex align-items-center" style="padding-top: 50px;">
+            <p class="txTitle">Title</p>
+        </div>
+        
+    </div>
+</div>

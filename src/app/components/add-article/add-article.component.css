@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+.colorOrange {
+    color: #ff4f28;
+}
+
+.add-article-header {
+    font-family: 'Merriweather', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0px;
+}
+
+.iconHeader {
+    margin-right: 15px;
+}
+
+h4 {
+    font-weight: bolder;
+    font-size: 38px;
+    margin: 0px;
+    color: #ededed;
+}
+
+.backButton {
+    border-radius: 20px; 
+    padding: 8px 12px;
+    background-color: #004d8f; 
+    color: #ededed; 
+    font-family: 'Merriweather', serif; 
+    font-weight: bold;
+    border: 2px solid #ededed;
+    box-shadow: 0 5px #a9a9a9;
+    margin: 20px 0px 15px 0px;
+    
+}
+
+.backButton:hover {
+    background-color: #ededed;
+    color: #004d8f;
+}
+
+.backButton:active {
+    background-color: #ededed;
+    color: #004d8f;
+    box-shadow: 0 3px #a9a9a9;
+    transform: translateY(3px);
+}
+
+.headSection {
+    border: 2px solid #ff4f28;
+    border-radius: 8px;
+    position: relative;
+    bottom: -12px;
+}
