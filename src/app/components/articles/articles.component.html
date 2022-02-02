@@ -8,7 +8,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">ID</th>
+                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">Number</th>
                     <th scope="col" class="text-center" style="border: 3px solid #ededed;">Title</th>
                     <th scope="col" class="text-center" style="border: 3px solid #ededed;">Short Content</th>
                     <th scope="col" class="text-center" style="border: 3px solid #ededed;">&nbsp;</th>
@@ -16,14 +16,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let article of Articles.data; let i = index">
-                    <td scope="col" style="border: 3px solid #ededed;">{{i+1}}</td>
+                    <td scope="col" style="border: 3px solid #ededed;text-align:center;">{{i+1}}</td>
                     <td scope="col" style="border: 3px solid #ededed;">{{article.titlE_CONTENT}}</td>
                     <td scope="col" style="border: 3px solid #ededed;">{{article.shorT_CONTENT}}</td>
                     <td scope="col" style="border: 3px solid #ededed;"><button routerLink="/article-details/{{article.contenT_ID}}" class="detailB" type="button" style="border: 1px solid #ededed; border-radius: 15px; padding: 10px; color: #004d8f;">Detail</button></td>
                 </tr>
-                
             </tbody>
         </table>
+    </div>
+
+    <div class="btn-toolbar d-flex justify-content-center">
+        <span *ngFor="let sumArticle of ButtonPage; let i = index">
+            <button type="submit" class="btn btn-primary" (click)="getArticlesForPage(i+1)">{{i+1}}</button>
+        </span>
     </div>
 
     <!-- <div class="tb-pagination">

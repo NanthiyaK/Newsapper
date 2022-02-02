@@ -16,7 +16,6 @@ export class ArticleDetailsComponent implements OnInit {
 
   constructor(private articleService: ArticleService, private _location: Location, private activatedRoute: ActivatedRoute) { 
     this.getId = this.activatedRoute.snapshot.paramMap.get('id'); 
-    this.getId = parseInt(this.getId);
       this.articleService.GetArticlesDetails(this.getId).subscribe(res => {
       console.log(res);
       this.Articles = res;

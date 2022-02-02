@@ -7,29 +7,16 @@
     </div>
 
     <!-- Search Bar -->
-    <div class="search-bar d-flex flex-row justify-content-between">
-        <p>Search</p>
+    <div class="search-bar d-flex flex-row justify-content-start">
+        <p style="margin-right: 25px;">Search</p>
 
         <div class="searchContainer">
             <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchId" class="form-control searchBox" 
+            <input type="text" name="searchGroup" class="form-control searchBox" 
                 [(ngModel)]="searchText" autocomplete="off" 
-                placeholder="ID...">
+                placeholder="search..." style="width: 300px;">
         </div>
 
-        <div class="searchContainer">
-            <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchTitle" class="form-control searchBox" 
-                 autocomplete="off" 
-                placeholder="Title...">
-        </div>
-
-        <div class="searchContainer">
-            <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchEditDate" class="form-control searchBox" 
-                 autocomplete="off" 
-                placeholder="Edit Date...">
-        </div>
     </div>
 
     <!-- +Add button -->
@@ -67,5 +54,11 @@
             </tbody>
         </table>
         
+    </div>
+
+    <div class="btn-toolbar d-flex justify-content-center">
+        <span *ngFor="let sumArticle of ButtonPage; let i = index">
+            <button type="submit" class="btn btn-primary" (click)="getArticlesForPage(i+1)">{{i+1}}</button>
+        </span>
     </div>
 </div>

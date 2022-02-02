@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticleService } from '../../services/article.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,13 +12,20 @@ export class ArticlesComponent implements OnInit {
 
   getId: any;
 
+  page: any;
+
   Articles:any = [];
 
+  TotalArticles:any = [];
+
+  ButtonPage:any = [];
+
   constructor(private articleService: ArticleService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute,
+    private ngZone: NgZone,
+    private router: Router) { 
       this.getId = this.activatedRoute.snapshot.paramMap.get('page'); 
       this.articleService.GetArticles(this.getId).subscribe(res => {
-      console.log(res);
       this.Articles = res;
     })
   }
@@ -26,7 +33,22 @@ export class ArticlesComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.Articles.contenT_ID = parseInt(this.Articles.contenT_ID);
+    this.articleService.GetSumArticles().subscribe(res => {
+      this.TotalArticles = res;
+      this.TotalArticles = Math.ceil(this.TotalArticles.total / 6);
+      console.log(this.TotalArticles);
+      for (let index = 0; index < this.TotalArticles; index++) {
+        this.ButtonPage.push(index);
+      }
+      console.log(this.ButtonPage);
+    })
+  }
+
+  getArticlesForPage(page: any) {
+    this.articleService.GetArticles(page).subscribe((res) => {
+      this.ngZone.run(() => this.router.navigateByUrl('/articles/'+page));
+      this.Articles = res;
+    });
   }
 
   
