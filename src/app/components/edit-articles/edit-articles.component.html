@@ -7,28 +7,14 @@
     </div>
 
     <!-- Search Bar -->
-    <div class="search-bar d-flex flex-row justify-content-between">
+    <div class="search-bar d-flex flex-row justify-content-start">
         <p>Search</p>
 
         <div class="searchContainer">
             <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchId" class="form-control searchBox" 
+            <input type="text" name="searchData" class="form-control searchBox" 
                 [(ngModel)]="searchText" autocomplete="off" 
                 placeholder="ID...">
-        </div>
-
-        <div class="searchContainer">
-            <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchTitle" class="form-control searchBox" 
-                 autocomplete="off" 
-                placeholder="Title...">
-        </div>
-
-        <div class="searchContainer">
-            <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchEditDate" class="form-control searchBox" 
-                 autocomplete="off" 
-                placeholder="Edit Date...">
         </div>
     </div>
 

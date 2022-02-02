@@ -22,15 +22,15 @@ export class AddArticleComponent implements OnInit {
     private ngZone: NgZone,
     private router: Router) { 
       this.articleForm = this.formBuilder.group({
-        contenT_ID: ["1"],
+        contenT_ID: [""],
         grouP_CONTENT: [""],
         titlE_CONTENT: [""],
         shorT_CONTENT: [""],
         detaiL_CONTENT: [""],
         statuS_CONTENT: ["1"],
-        useR_CREATE: ["1"],
+        useR_CREATE: ["admin"],
         timE_CREATE: ["1"],
-        useR_UPDATE: ["1"],
+        useR_UPDATE: ["admin"],
         timE_UPDATE: ["1"]
       })
     }

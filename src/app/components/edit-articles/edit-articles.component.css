@@ -27,7 +27,7 @@ p {
     font-family: 'Merriweather', serif;
     font-size: 25px;
     color: #ededed;
-    margin: 0px;
+    margin: 0px 30px 0px 0px;
 }
 
 .searchContainer {
@@ -46,7 +46,7 @@ p {
   
 .searchBox {
     border: 0;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0.5rem 8rem 0.5rem 0.5rem;
     flex: 1;
     font-family: 'Merriweather', serif;
 }

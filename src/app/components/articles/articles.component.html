@@ -26,11 +26,9 @@
         </table>
     </div>
 
-    <!-- <div class="tb-pagination">
-        <ngb-pagination
-            [(page)]="page"
-            [pageSize]="pageSize"
-            [collectionSize]="array.length">
-        </ngb-pagination>
-    </div> -->
+    <div class="tb-pagination">
+        <div *ngFor="let ppage in PaginationPage; let i = index">
+            <button>{{ppage}}</button>
+        </div>
+    </div>
 </div>

@@ -13,6 +13,7 @@ export class ArticlesComponent implements OnInit {
   getId: any;
 
   Articles:any = [];
+  PaginationPage:any = [];
 
   constructor(private articleService: ArticleService,
     private activatedRoute: ActivatedRoute) { 

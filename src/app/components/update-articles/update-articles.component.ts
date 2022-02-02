@@ -4,6 +4,7 @@ import { ArticleService } from 'src/app/services/article.service';
 import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder} from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-update-articles',
@@ -21,6 +22,7 @@ export class UpdateArticlesComponent implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
+    private _location: Location
     ) { 
     this.getId = this.activatedRoute.snapshot.paramMap.get('id'); 
     this.getId = parseInt(this.getId);
@@ -65,6 +67,10 @@ export class UpdateArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   onUpdate(): any {

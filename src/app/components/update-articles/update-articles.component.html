@@ -1,58 +1,91 @@
-<div class="container mt-3">
-    <form [formGroup] = "updateForm" (ngSubmit)="onUpdate()" class="form-container">
-        <div class="container-fluid addSection" style="background-color: #ededed;">
-            <div class="container" style="padding-top: 50px;padding-bottom: 50px;">
-                <div class="input-group" hidden>
+<div class="container" style="margin-bottom: 50px;">
+    <!-- Header -->
+    <div class="update-article-header">
+        <i class="fas fa-star-of-life fa-3x colorOrange iconHeader"></i>
+        <h4>Update Articles</h4>
+    </div>
+
+    <!-- Backward button -->
+    <div class="back-button d-flex justify-content-start">
+        <button (click)="backClicked()" class="backButton">
+            <i class="fas fa-arrow-circle-left"></i>
+            Back</button>
+    </div>
+
+    <!-- Update Section-->
+    <div class="container-fluid d-flex align-items-center headSection" style="background-color: #ff4f28;">
+        <i class="fas fa-circle" style="color: #ededed; margin-right: 5px;"></i>
+        <i class="fas fa-square" style="color: #ededed; margin-right: 5px;"></i>
+        <i class="fas fa-caret-up fa-2x" style="color: #ededed;"></i>
+    </div>
+
+    <div class="container-fluid" style="background-color: #ededed;">
+
+        <div class="container d-flex flex-column" style="padding-top: 50px; padding-bottom: 60px;">
+            <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" class="form-container">
+                <div hidden>
                     <span class="input-group-text">ID</span>
-                    <input type="text" class="input-control" formControlName="contenT_ID" required>
-                </div><br>
-                <div class="input-group">
-                    <span class="input-group-text">Article Group</span>
-                    <select formControlName="grouP_CONTENT" class="input-control" style="text-align:center;">
+                    <input type="text"formControlName="contenT_ID" required>
+                </div>
+
+                <div class="container d-flex" style="margin: 20px 0px;">
+                    <p style="margin: 0px 40px 0px 110px; font-weight: bold;">Group</p>
+                    <select formControlName="grouP_CONTENT" style="width: 35%;">
                         <option value="News">News</option>
-                        <option value="Funny">มุขตลกๆ</option>
+                        <option value="Funny">Funny</option>
+                        <option value="Fiction">Fiction</option>
                     </select>
-                </div><br>
-                <div class="input-group">
-                    <span class="input-group-text">Title</span>
-                    <input type="text" class="input-control" formControlName="titlE_CONTENT" required>
-                </div><br>
-                <div class="input-group">
-                    <span class="input-group-text">Short Article</span>
-                    <input type="text" class="input-control" formControlName="shorT_CONTENT" required>
-                </div><br>
-                <div class="input-group">
-                    <span class="input-group-text">Article Detail</span>
-                    <input type="text" class="input-control" formControlName="detaiL_CONTENT" required>
-                </div><br>
-                <div class="input-group">
-                    <span class="input-group-text">Status</span>
-                    <select formControlName="statuS_CONTENT" class="input-control" style="text-align:center;">
+                </div>
+            
+                <div class="container d-flex" style="margin: 5px 0px 20px 0px;">
+                    <p style="margin: 0px 52px 0px 110px; font-weight: bold;">Title</p>
+                    <input type="text" formControlName="titlE_CONTENT" required style="width: 69.8%;">
+                </div>
+
+                <div class="container d-flex flex-column" style="margin: 5px 0px 20px 0px;">
+                    <p style="margin: 0px 0px 10px 110px; font-weight: bold;">Short Content</p>
+                    <div class="d-flex justify-content-center">
+                        <textarea cols="81" rows="6" formControlName="titlE_CONTENT" required></textarea>
+                    </div>
+                </div>
+
+                <div class="container d-flex flex-column" style="margin: 5px 0px 20px 0px;">
+                    <p style="margin: 0px 0px 10px 110px; font-weight: bold;">Detail</p>
+                    <div class="d-flex justify-content-center">
+                        <textarea cols="81" rows="13" formControlName="detaiL_CONTENT" required></textarea>
+                    </div>
+                </div>
+                
+                <div class="container d-flex" style="margin: 5px 0px 20px 0px;">
+                    <p style="margin: 0px 40px 0px 110px; font-weight: bold;">Status</p>
+                    <select formControlName="statuS_CONTENT">
                         <option value="0">Closed</option>
                         <option value="1">Open</option>
                     </select>
-                </div><br>
-                <div class="input-group" hidden>
-                    <span class="input-group-text">Create By</span>
-                    <input type="text" class="input-control" formControlName="useR_CREATE" required>
-                </div><br>
-                <div class="input-group" hidden>
-                    <span class="input-group-text">Time</span>
-                    <input type="text" class="input-control" formControlName="timE_CREATE" required>
-                </div><br>
-                <div class="input-group" hidden>
-                    <span class="input-group-text">Update By</span>
-                    <input type="text" class="input-control" formControlName="useR_UPDATE" required>
-                </div><br>
-                <div class="input-group" hidden>
-                    <span class="input-group-text">Time</span>
-                    <input type="text" class="input-control" formControlName="timE_UPDATE" required>
                 </div>
-                <div class="input-group" style="margin-top:0px;">
-                    <button class="btn btn-primary btn-block" type="submit">Update</button>
+
+                <div hidden>
+                    <span>Create By</span>
+                    <input type="text" formControlName="useR_CREATE" required>
                 </div>
-            </div>
+                <div hidden>
+                    <span>Time</span>
+                    <input type="text" formControlName="timE_CREATE" required>
+                </div>
+                <div hidden>
+                    <span>Update By</span>
+                    <input type="text" formControlName="useR_UPDATE" required>
+                </div>
+                <div hidden>
+                    <span>Time</span>
+                    <input type="text" formControlName="timE_UPDATE" required>
+                </div>
+                <div class="d-flex justify-content-center" style="margin: 50px 0px 0px 0px;">
+                    <button class="updateB" style="border: 1px solid #004d8f; border-radius: 15px; padding: 10px; color: #ededed; background-color: #004d8f;">Update Article</button>
+                </div>
             
+            </form>
+
         </div>
-    </form>
+    </div>
 </div>
