@@ -11,9 +11,9 @@ export class Article {
   detail!: String;
   status!: Number;
   userCreate!: String;
-  timeCreate!: Date;
+  timeCreate!: String;
   userUpdate!: String;
-  timeUpdate!: Date;
+  timeUpdate!: String;
   page!: number;
 }
 
@@ -37,9 +37,27 @@ export class ArticleService {
     return this.httpClient.get(this.REST_API+"shortlist/"+page);
   };
 
-  GetArticlesDetails(page: any) {
-    return this.httpClient.get(this.REST_API+"detail/"+page);
+  GetArticlesDetails(id: any) {
+    return this.httpClient.get(this.REST_API+"detail/"+id);
   };
+
+  // Add new article
+  AddNewArticle(data: any): Observable<any> {
+    let API_URL = this.REST_API+"addcontent";
+    return this.httpClient.post(API_URL, data).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Update
+  updateArticle(id: any, data: any): Observable<any> {
+    console.log(data);
+    let API_URL = this.REST_API+"update/"+id;
+    return this.httpClient.patch(API_URL, data, { headers: this.httpHeaders })
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
 
   // Delete
   deleteArticle(id: any): Observable<any> {

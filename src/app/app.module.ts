@@ -12,6 +12,8 @@ import { EditArticlesComponent } from './components/edit-articles/edit-articles.
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AddArticleComponent } from './components/add-article/add-article.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
+import { UpdateArticlesComponent } from './components/update-articles/update-articles.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
     ArticlesComponent,
     EditArticlesComponent,
     AddArticleComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    UpdateArticlesComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
     NgbModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule,
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]

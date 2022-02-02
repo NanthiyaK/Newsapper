@@ -1,0 +1,58 @@
+<div class="container mt-3">
+    <form [formGroup] = "updateForm" (ngSubmit)="onUpdate()" class="form-container">
+        <div class="container-fluid addSection" style="background-color: #ededed;">
+            <div class="container" style="padding-top: 50px;padding-bottom: 50px;">
+                <div class="input-group" hidden>
+                    <span class="input-group-text">ID</span>
+                    <input type="text" class="input-control" formControlName="contenT_ID" required>
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-text">Article Group</span>
+                    <select formControlName="grouP_CONTENT" class="input-control" style="text-align:center;">
+                        <option value="News">News</option>
+                        <option value="Funny">มุขตลกๆ</option>
+                    </select>
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-text">Title</span>
+                    <input type="text" class="input-control" formControlName="titlE_CONTENT" required>
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-text">Short Article</span>
+                    <input type="text" class="input-control" formControlName="shorT_CONTENT" required>
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-text">Article Detail</span>
+                    <input type="text" class="input-control" formControlName="detaiL_CONTENT" required>
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-text">Status</span>
+                    <select formControlName="statuS_CONTENT" class="input-control" style="text-align:center;">
+                        <option value="0">Closed</option>
+                        <option value="1">Open</option>
+                    </select>
+                </div><br>
+                <div class="input-group" hidden>
+                    <span class="input-group-text">Create By</span>
+                    <input type="text" class="input-control" formControlName="useR_CREATE" required>
+                </div><br>
+                <div class="input-group" hidden>
+                    <span class="input-group-text">Time</span>
+                    <input type="text" class="input-control" formControlName="timE_CREATE" required>
+                </div><br>
+                <div class="input-group" hidden>
+                    <span class="input-group-text">Update By</span>
+                    <input type="text" class="input-control" formControlName="useR_UPDATE" required>
+                </div><br>
+                <div class="input-group" hidden>
+                    <span class="input-group-text">Time</span>
+                    <input type="text" class="input-control" formControlName="timE_UPDATE" required>
+                </div>
+                <div class="input-group" style="margin-top:0px;">
+                    <button class="btn btn-primary btn-block" type="submit">Update</button>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>

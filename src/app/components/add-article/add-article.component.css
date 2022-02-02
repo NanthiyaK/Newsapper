@@ -54,3 +54,20 @@ h4 {
     position: relative;
     bottom: -12px;
 }
+
+.fillData {
+    font-family: 'Merriweather', serif;
+}
+
+.addB {
+    box-shadow: 0 4px #a9a9a9;
+}
+
+.addB:active {
+    box-shadow: 0 0px #a9a9a9;
+    transform: translateY(3px);
+}
+
+textarea {
+    width: 800px;
+}

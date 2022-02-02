@@ -19,8 +19,45 @@
         <i class="fas fa-caret-up fa-2x" style="color: #ededed;"></i>
     </div>
     <div class="container-fluid addSection" style="background-color: #ededed;">
-        <div class="container d-flex align-items-center" style="padding-top: 50px;">
-            <p class="txTitle">Title</p>
+        <div class="container d-flex flex-column fillData" style="padding-top: 50px; padding-bottom: 60px;">
+
+            <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+                <div class="container d-flex" style="margin: 20px 0px;">
+                    <p class="txTitle" style="margin: 0px 40px 0px 110px; font-weight: bold;">Group</p>
+                    <select name="groupArticle" id="groupArticle" class="form-control" formControlName="grouP_CONTENT" required>
+                        <option value="">-- Select --</option>
+                        <option value="News">News</option>
+                        <option value="Funny">Funny</option>
+                        <option value="Fiction">Fiction</option>
+                    </select>
+                    <input type="hidden" formControlName="contenT_ID">
+                </div>
+                <div class="container d-flex" style="margin: 5px 0px 20px 0px;">
+                    <p class="txTitle" style="margin: 0px 52px 0px 110px; font-weight: bold;">Title</p>
+                    <input type="text" name="nameTitle" placeholder="Enter a title..." class="form-control" formControlName="titlE_CONTENT" required>
+                    
+                </div>
+                <div class="container d-flex flex-column" style="margin: 5px 0px 20px 0px;">
+                    <p class="txTitle" style="margin: 0px 0px 0px 110px; font-weight: bold;">Short Content</p>
+                    <div class="d-flex justify-content-center">
+                        <textarea name="" id="" cols="80" rows="7" placeholder="Enter a short content..." class="form-control" formControlName="shorT_CONTENT" required></textarea>
+                    </div>
+                </div>
+                <div class="container d-flex flex-column" style="margin: 5px 0px 20px 0px;">
+                    <p class="txTitle" style="margin: 0px 0px 0px 110px; font-weight: bold;">Detail</p>
+                    <div class="d-flex justify-content-center">
+                        <textarea name="" id="" cols="80" rows="15" placeholder="Enter a detail..." class="form-control" formControlName="detaiL_CONTENT" required></textarea>
+                    </div>
+                    <input type="hidden" formControlName="statuS_CONTENT">
+                    <input type="hidden" formControlName="useR_CREATE">
+                    <input type="hidden" formControlName="timE_CREATE">
+                    <input type="hidden" formControlName="useR_UPDATE">
+                    <input type="hidden" formControlName="timE_UPDATE">
+                </div>
+                <div class="d-flex justify-content-center" style="margin: 25px 0px 0px 0px;">
+                    <button class="addB" type="submit" style="border: 1px solid #004d8f; border-radius: 15px; padding: 10px; color: #ededed; background-color: #004d8f;">Add New Article</button>
+                </div>
+            </form>
         </div>
         
     </div>

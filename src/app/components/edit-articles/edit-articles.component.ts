@@ -1,27 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone} from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 import Swal from 'sweetalert2';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-edit-articles',
   templateUrl: './edit-articles.component.html',
-  styleUrls: ['./edit-articles.component.css']
+  styleUrls: ['./edit-articles.component.css'],
 })
+
 
 export class EditArticlesComponent implements OnInit {
 
   searchText: any;
   page: any;
   getId: any;
+  
 
-  constructor(private articleService: ArticleService, private activatedRoute: ActivatedRoute) { 
+  constructor(private articleService: ArticleService, 
+    private activatedRoute: ActivatedRoute, 
+    public formBuilder: FormBuilder,
+    private router: Router,
+    private ngZone: NgZone,
+    ) { 
     this.getId = this.activatedRoute.snapshot.paramMap.get('page'); 
       this.articleService.GetArticles(this.getId).subscribe(res => {
       console.log(res);
       this.Articles = res;
+      //
   })
+
 }
 
   Articles:any = [];
@@ -31,6 +42,37 @@ export class EditArticlesComponent implements OnInit {
     //   console.log(res);
     //   this.Articles = res;
     // })
+    var pass = "123456";
+    var isLoggingIn = sessionStorage.getItem("login");
+    if (!isLoggingIn) {
+      Swal.fire({
+        title: 'Enter password',
+        input: 'password',
+        customClass: {
+          validationMessage: 'my-validation-message'
+        },
+        preConfirm: (value) => {
+          if (value == pass) {
+            sessionStorage.setItem("login","asd");
+            Swal.fire({
+              title: 'Enter name',
+              input: 'text',
+              customClass: {
+                validationMessage: 'my-validation-message'
+              },
+              preConfirm: (value) => {
+                if (value) {
+                  sessionStorage.setItem("user",value);
+                  window.location.href = "http://localhost:4200/edit-articles/1";
+                }
+              }
+            });
+          }
+        }
+      });
+    }
+    console.log(isLoggingIn,sessionStorage.getItem("user"));
+    
   }
 
   delete(id:any, i:any) {
@@ -50,10 +92,11 @@ export class EditArticlesComponent implements OnInit {
           'success'
         )
         this.articleService.deleteArticle(id).subscribe(() => {
-          this.Articles.splice(i, 1);
+          this.Articles.data.splice(i, 1);
         });
       }
     })
   }
 
+  
 }
