@@ -11,9 +11,9 @@ export class Article {
   detail!: String;
   status!: Number;
   userCreate!: String;
-  timeCreate!: Date;
+  timeCreate!: String;
   userUpdate!: String;
-  timeUpdate!: Date;
+  timeUpdate!: String;
   page!: number;
 }
 
@@ -63,4 +63,12 @@ export class ArticleService {
     console.log(errorMessage);
     return errorMessage;
   };
+
+  // Add new article
+  AddNewArticle(data: Article): Observable<any> {
+    let API_URL = this.REST_API+"addcontent";
+    return this.httpClient.post(API_URL, data).pipe(
+      catchError(this.handleError)
+    )
+  }
 }

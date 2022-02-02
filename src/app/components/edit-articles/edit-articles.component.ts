@@ -31,6 +31,24 @@ export class EditArticlesComponent implements OnInit {
     //   console.log(res);
     //   this.Articles = res;
     // })
+
+    var pass = "123456";
+    var isLoggingIn = sessionStorage.getItem("login");
+    if (!isLoggingIn) {
+      Swal.fire({
+        title: 'Enter password',
+        input: 'password',
+        customClass: {
+          validationMessage: 'my-validation-message'
+        },
+        preConfirm: (value) => {
+          if (value == pass) {
+            window.location.href = "http://localhost:4200/edit-articles/1";
+            sessionStorage.setItem("login","asd");
+          }
+        }
+      });
+    }
   }
 
   delete(id:any, i:any) {

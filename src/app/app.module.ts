@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArticleService } from './services/article.service';
 import { EditArticlesComponent } from './components/edit-articles/edit-articles.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -27,7 +27,8 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
     NgbModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]

@@ -7,29 +7,16 @@
     </div>
 
     <!-- Search Bar -->
-    <div class="search-bar d-flex flex-row justify-content-between">
-        <p>Search</p>
+    <div class="search-bar d-flex flex-row justify-content-start">
+        <p style="margin-right: 25px;">Search</p>
 
         <div class="searchContainer">
             <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchId" class="form-control searchBox" 
+            <input type="text" name="searchGroup" class="form-control searchBox" 
                 [(ngModel)]="searchText" autocomplete="off" 
-                placeholder="ID...">
+                placeholder="search..." style="width: 300px;">
         </div>
 
-        <div class="searchContainer">
-            <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchTitle" class="form-control searchBox" 
-                 autocomplete="off" 
-                placeholder="Title...">
-        </div>
-
-        <div class="searchContainer">
-            <i class="fas fa-search searchIcon d-flex align-items-center" style="color: #ededed;"></i>
-            <input type="text" name="searchEditDate" class="form-control searchBox" 
-                 autocomplete="off" 
-                placeholder="Edit Date...">
-        </div>
     </div>
 
     <!-- +Add button -->
@@ -56,7 +43,7 @@
                 <tr *ngFor="let editArtcle of Articles.data | filter: searchText ; let i = index">
                     <td scope="col" style="border: 3px solid #ededed;">{{i+1}}</td>
                     <td scope="col" style="border: 3px solid #ededed;">{{editArtcle.titlE_CONTENT}}</td>
-                    <td scope="col" class="text-center" style="border: 3px solid #ededed;">{{editArtcle.timE_UPDATE | date: 'medium'}}</td>
+                    <td scope="col" class="text-center" style="border: 3px solid #ededed;">{{editArtcle.timE_UPDATE}}</td>
                     <td scope="col" class="d-flex justify-content-center align-items-center">
                         <button class="editB" style="border: 1px solid #ededed; border-radius: 10px; padding: 12px 12px; color: #004d8f; margin-right: 10px;">
                             <i class="far fa-edit fa-lg"></i></button>
