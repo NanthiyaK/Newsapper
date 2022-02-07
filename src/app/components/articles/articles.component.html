@@ -8,27 +8,57 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">ID</th>
+                    <th scope="col" class="text-center" style="border: 3px solid #ededed;">Number</th>
                     <th scope="col" class="text-center" style="border: 3px solid #ededed;">Title</th>
                     <th scope="col" class="text-center" style="border: 3px solid #ededed;">Short Content</th>
                     <th scope="col" class="text-center" style="border: 3px solid #ededed;">&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let article of Articles.data; let i = index">
-                    <td scope="col" style="border: 3px solid #ededed;">{{i+1}}</td>
+                <tr *ngFor="let article of Articles.data | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: currPage,
+                    totalItems: count
+                  }; let i = index" [class.active]="i == currentIndex"
+                  >
+                    <td scope="col" style="border: 3px solid #ededed;text-align:center;">{{i+1}}</td>
                     <td scope="col" style="border: 3px solid #ededed;">{{article.titlE_CONTENT}}</td>
                     <td scope="col" style="border: 3px solid #ededed;">{{article.shorT_CONTENT}}</td>
-                    <td scope="col" style="border: 3px solid #ededed;"><button routerLink="/article-details/{{article.contenT_ID}}" class="detailB" type="button" style="border: 1px solid #ededed; border-radius: 15px; padding: 10px; color: #004d8f;">Detail</button></td>
+                    <td scope="col" style="border: 3px solid #ededed; text-align:center;">
+                        <button routerLink="/article-details/{{article.contenT_ID}}" class="detailB" type="button" 
+                            style="border: 1px solid #ededed; border-radius: 15px; padding: 10px; color: #004d8f;"
+                        >
+                            Detail
+                        </button>
+                    </td>
                 </tr>
-                
             </tbody>
         </table>
     </div>
 
-    <div class="tb-pagination">
-        <div *ngFor="let ppage in PaginationPage; let i = index">
-            <button>{{ppage}}</button>
+
+    <div class="d-flex justify-content-center">
+        <div *ngFor="let sumArticle of ButtonPage; let i = index">
+            <button type="submit" class="paginationB" (click)="getArticlesForPage(i+1)">{{i+1}}</button>
         </div>
     </div>
+
+    <div class="col-md-12">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          [responsive]="true"
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+
+      <div class="mt-3">
+    
+        Items per Page:
+        <select (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
 </div>

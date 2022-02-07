@@ -41,6 +41,11 @@ export class ArticleService {
     return this.httpClient.get(this.REST_API+"detail/"+id);
   };
 
+  // Get totalDb
+  GetSumArticles() {
+    return this.httpClient.get(this.REST_API+"totallist");
+  }
+
   // Add new article
   AddNewArticle(data: any): Observable<any> {
     let API_URL = this.REST_API+"addcontent";
@@ -81,4 +86,10 @@ export class ArticleService {
     console.log(errorMessage);
     return errorMessage;
   };
+
+  // Get All for Pagination
+  getAllArticles(params: any): Observable<any> {
+    return this.httpClient.get<any>(this.REST_API, { params });
+  }
+
 }

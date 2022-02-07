@@ -18,7 +18,12 @@ export class EditArticlesComponent implements OnInit {
   searchText: any;
   page: any;
   getId: any;
-  
+
+  TotalArticles:any = [];
+
+  ButtonPage:any = [];
+
+   Articles:any = [];
 
   constructor(private articleService: ArticleService, 
     private activatedRoute: ActivatedRoute, 
@@ -35,13 +40,14 @@ export class EditArticlesComponent implements OnInit {
 
 }
 
-  Articles:any = [];
+ 
 
   ngOnInit(): void {
     // this.articleService.GetArticles(this.page).subscribe(res => {
     //   console.log(res);
     //   this.Articles = res;
     // })
+
     var pass = "123456";
     var isLoggingIn = sessionStorage.getItem("login");
     if (!isLoggingIn) {
@@ -72,7 +78,24 @@ export class EditArticlesComponent implements OnInit {
       });
     }
     console.log(isLoggingIn,sessionStorage.getItem("user"));
-    
+
+    // Button amount
+    this.articleService.GetSumArticles().subscribe(res => {
+      this.TotalArticles = res;
+      this.TotalArticles = Math.ceil(this.TotalArticles.total / 6);
+      console.log(this.TotalArticles);
+      for (let index = 0; index < this.TotalArticles; index++) {
+        this.ButtonPage.push(index);
+      }
+      console.log(this.ButtonPage);
+    })
+  }
+
+  getArticlesForPage(page: any) {
+    this.articleService.GetArticles(page).subscribe((res) => {
+      this.ngZone.run(() => this.router.navigateByUrl('/edit-articles/'+page));
+      this.Articles = res;
+    });
   }
 
   delete(id:any, i:any) {

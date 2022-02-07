@@ -9,7 +9,8 @@
     <div class="back-button d-flex justify-content-start">
         <button (click)="backClicked()" class="backButton">
             <i class="fas fa-arrow-circle-left"></i>
-            Back</button>
+            Back
+        </button>
     </div>
 
     <!-- Details Section-->
@@ -20,10 +21,10 @@
         <label *ngFor="let article of Articles.data; let i = index" class="" style="color:whitesmoke;padding-left: 30px; margin: 0px; font-family: 'Merriweather', serif;">Category : {{article.grouP_CONTENT}}</label>
     </div>
     <div class="container-fluid addSection" style="background-color: #ededed;">
-        <div class="container d-flex align-items-center" style="padding-top: 50px;">
+        <div class="container d-flex align-items-center" style="padding-top: 50px; font-family: 'Merriweather', serif;">
             <p class="txTitle" *ngFor="let article of Articles.data; let i = index">{{article.detaiL_CONTENT}}</p>
         </div>
-        <div class="container d-flex align-items-flex-end" style="padding-top: 50px;padding-bottom: 15px;">
+        <div class="container d-flex align-items-flex-end" style="padding-top: 50px;padding-bottom: 15px; font-family: 'Merriweather', serif;">
             <p *ngFor="let article of Articles.data; let i = index">create by : {{article.useR_CREATE}}<br>{{article.timE_CREATE}}</p>
         </div>
     </div>

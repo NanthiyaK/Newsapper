@@ -22,16 +22,17 @@ export class AddArticleComponent implements OnInit {
     private ngZone: NgZone,
     private router: Router) { 
       this.articleForm = this.formBuilder.group({
-        contenT_ID: [""],
+
+        contenT_ID: ["string"],
         grouP_CONTENT: [""],
         titlE_CONTENT: [""],
         shorT_CONTENT: [""],
         detaiL_CONTENT: [""],
         statuS_CONTENT: ["1"],
-        useR_CREATE: ["admin"],
-        timE_CREATE: ["1"],
-        useR_UPDATE: ["admin"],
-        timE_UPDATE: ["1"]
+        useR_CREATE: sessionStorage.getItem('user'),
+        timE_CREATE: ["string"],
+        useR_UPDATE: sessionStorage.getItem('user'),
+        timE_UPDATE: ["string"]
       })
     }
 
@@ -48,9 +49,9 @@ export class AddArticleComponent implements OnInit {
     .subscribe((err) => {
       console.log(this.articleForm.value)
       if (err != "Error"){
-        var texts = this.articleForm.value.grouP_CONTENT + " has been added!";
+        var texts = "This article has been added successfully!";
         console.log("Data added successfully");
-        this.ngZone.run(() => this.router.navigateByUrl('articles/1'))
+        this.ngZone.run(() => this.router.navigateByUrl('edit-articles/1'))
         Swal.fire({
           icon: 'success',
           title: 'Successfully',

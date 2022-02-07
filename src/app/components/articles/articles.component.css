@@ -38,3 +38,21 @@ i {
     box-shadow: 0 0px #a9a9a9;
     transform: translateY(3px);
 }
+
+.paginationB {
+    margin: 30px 5px 0px 5px;
+    border-radius: 50%;
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    border: 3px solid #ededed;
+    width: 40px;
+    height: 40px;
+    color: #004d8f;
+}
+
+.paginationB:hover {
+    color: #ededed;
+    border-radius: 50%;
+    border: 3px solid #ededed;
+    background-color: #004d8f;
+}
